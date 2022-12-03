@@ -3,9 +3,26 @@
 Documentation of what has been done during the project.
 
 # 3/12/2022
+---
+## A la recherche de ce qui a déjà été fait dans la matière d'image enhancement
 
-A la recherche de ce qui a déjà été fait dans la matière d'image enhancement
+- [Night-to-Day Image Translation for Retrieval-based Localization](https://people.ee.ethz.ch/~timofter/publications/Anoosheh-ICRA-2019.pdf)
 
-#### [Night-to-Day Image Translation for Retrieval-based Localization](https://people.ee.ethz.ch/~timofter/publications/Anoosheh-ICRA-2019.pdf)
+- L'utilisation d'un Generative Adversarial Networks (GANs) peut donné de bon resultats
 
-- L'utilisation d'un Generative Adversarial Networks (GANs) peut donné des bon resultats
+- Recherche sur le fonctionnement d'un GAN
+
+![GAN Diagram](/resources/assets/Example-of-the-Generative-Adversarial-Network-Model-Architecture.png)
+
+## Recherche sur la génération des training data
+
+- Pour créer notre dataset nous avons donc besoin de training data composé d'image de nuit et de la meme image mais de jour
+
+- J'essaie de transformer une photo de jour en nuit avec l'outil photoshop
+
+- Resultat :
+
+![Day Picture](/resources/assets/france.png)
+![Night Picture](/resources/assets/francenight.png)
+
+- Le processuse prend du temps, il va falloir l'automatisé
