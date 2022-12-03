@@ -20,9 +20,20 @@ Documentation of what has been done during the project.
 
 - J'essaie de transformer une photo de jour en nuit avec l'outil photoshop
 
-- Resultat :
+1. Example :
 
 ![Day Picture](/resources/assets/france.png)
+
+
+- 1er methode:
 ![Night Picture](/resources/assets/francenight.png)
 
-- Le processuse prend du temps, il va falloir l'automatisé
+- 2e methode:
+![Night Picture](/resources/assets/francenight2.png)
+
+2. Example :
+
+![Night Picture](/resources/assets/people.png)
+
+- 1er methode:
+![Night Picture](/resources/assets/peoplenight.png)
