@@ -50,3 +50,11 @@ Documentation of what has been done during the project.
 
 ![City by Day](/resources/assets/0_day.jpeg)
 ![City by Night](/resources/assets/0_night.jpeg)
+
+# 4/12/2022
+
+## Creation du dataset a partir de timelaps sur videvo
+
+- J'ai créer un script qui recupere les mp4 url, download les video et cut la 20 premiere frame et la derniere-50 frame
+- Je l'ai rendu plus robuste, mais il pourrais être beaucoup plus rapid, je pourrais multiprocess/multithreade le process mais c'est assez rapide pour moi
+- Je créer un script qui me permet de clean les data (inversé nuit et jour ou delete)
