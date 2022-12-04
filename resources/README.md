@@ -37,3 +37,16 @@ Documentation of what has been done during the project.
 
 - 1er methode:
 ![Night Picture](/resources/assets/peoplenight.png)
+
+## Après recherche j'ai trouvé des topics
+
+- [How to convert night image to day image?](https://datascience.stackexchange.com/questions/31430/how-to-convert-night-image-to-day-image)
+
+## Je cherche a trouver des timelapse qui montre le meme endroit de jour que de nuit
+
+- J'ai trouver un site repertoriant enormement de timelaps allant du jour jusqu'a la nuit: [VIDEVO](https://www.videvo.net/)
+
+- Je vais creer un script permettant de telecharger et extraire des photos a different moment du timelapse
+
+![City by Day](/resources/assets/0_day.jpeg)
+![City by Night](/resources/assets/0_night.jpeg)
