@@ -56,5 +56,17 @@ Documentation of what has been done during the project.
 ## Creation du dataset a partir de timelaps sur videvo
 
 - J'ai créer un script qui recupere les mp4 url, download les video et cut la 20 premiere frame et la derniere-50 frame
-- Je l'ai rendu plus robuste, mais il pourrais être beaucoup plus rapid, je pourrais multiprocess/multithreade le process mais c'est assez rapide pour moi
+- Je l'ai rendu plus robuste, mais il pourrais être beaucoup plus rapide, je pourrais multiprocess/multithreade le process mais c'est assez rapide pour moi
 - Je créer un script qui me permet de clean les data (inversé nuit et jour ou delete)
+
+![DATA CLEANER SCREENSHOT](/resources/assets/cleandata.png)
+
+- Les 700 images de base unclean m'ont donné 200 images clean
+- J'ai trouver un site pour enlever des watermark [pixelbin.io](https://www.pixelbin.io/)
+
+- J'ai prit des video de youtube de timelaps et j'ai cuter des images nuit/jour
+- J'ai reprit le dataset de 17 images je l'ai trier et upscale
+
+## Model
+
+- Malgré le fait qui me manque des data je vais commmencé a créer le GAN
