@@ -69,8 +69,9 @@ def main(base_url: list):
     # Look for mp4 link of the video
     new_links = []
     for i, link in enumerate(page_links):
-        print(f"SEARCH FOR MP4 LINKS : {i}", end="\r")
+        print(f"SEARCH FOR MP4 LINKS : {i}/{len(page_links)}", end="\r")
         new_links.append(videvo_find_mp4(link))
+    print()
     
     # Check if link is already downloaded
     links_used = load_links()
@@ -79,9 +80,10 @@ def main(base_url: list):
     # Download and save the image
     last_image_number = get_nb_last_existing_images()
     for i, link in enumerate(mp4_links):
-        print(f"DOWNLOAD AND CUTING IMAGES : {i}", end="\r")
+        print(f"DOWNLOAD AND CUTING IMAGES : {i}/{len(mp4_links)}", end="\r")
         mp4url_downloader(str(i + last_image_number), link)
         mp4_to_images(str(i + last_image_number))
+    print()
         
     save_links(links_used + mp4_links)
 
