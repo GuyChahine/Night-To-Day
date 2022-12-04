@@ -44,7 +44,11 @@ def videvo_find_mp4(page_link: str):
 def get_nb_last_existing_images():
     for (_dir_path, _dir_names, file_names) in walk("../data/timelaps/day/"):
         images_number = [int(name.replace(".jpeg", "")) for name in file_names]
-        return max(images_number)+1 if len(images_number) > 0 else 0
+        max_unclean = max(images_number)+1 if len(images_number) > 0 else 0
+    for (_dir_path, _dir_names, file_names) in walk("../data/clean_timelaps/day/"):
+        images_number = [int(name.replace(".jpeg", "")) for name in file_names]
+        max_clean = max(images_number)+1 if len(images_number) > 0 else 0
+    return max_unclean if max_unclean >= max_clean else max_clean
 
 def save_links(links: list):
     with open("../data/timelaps/links_tracker.pickle", "wb") as f:
