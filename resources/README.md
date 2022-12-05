@@ -7,6 +7,7 @@ Documentation of what has been done during the project.
 ## A la recherche de ce qui a déjà été fait dans la matière d'image enhancement
 
 - [Night-to-Day Image Translation for Retrieval-based Localization](https://people.ee.ethz.ch/~timofter/publications/Anoosheh-ICRA-2019.pdf)
+    - ![Cycle Gan Diagram](/resources/assets/CycleGanDIagram2.png)
 
 - L'utilisation d'un Generative Adversarial Networks (GANs) peut donné de bon resultats
 
@@ -70,3 +71,11 @@ Documentation of what has been done during the project.
 ## Model
 
 - Malgré le fait qui me manque des data je vais commmencé a créer le GAN
+
+- Je cherche sur Kaggle des information sur les GAN
+
+- [GAN INTRODUCTION KAGGLE](https://www.kaggle.com/code/jesucristo/gan-introduction)
+- [GAN with Keras: Application to Image Deblurring](https://medium.com/sicara/keras-generative-adversarial-networks-image-deblurring-45e3ab6977b5)
+- [GAN by Example using Keras on Tensorflow Backend](https://towardsdatascience.com/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0)
+- [Video on cycle GAN](https://www.youtube.com/watch?v=42gSiS9y5Lo)
+- [More paper on CycleGan](https://machinelearningmastery.com/how-to-develop-cyclegan-models-from-scratch-with-keras/)
