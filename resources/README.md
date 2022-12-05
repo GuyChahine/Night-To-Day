@@ -79,3 +79,9 @@ Documentation of what has been done during the project.
 - [GAN by Example using Keras on Tensorflow Backend](https://towardsdatascience.com/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0)
 - [Video on cycle GAN](https://www.youtube.com/watch?v=42gSiS9y5Lo)
 - [More paper on CycleGan](https://machinelearningmastery.com/how-to-develop-cyclegan-models-from-scratch-with-keras/)
+
+- J'ai fini la première creation du model ne m'aidant de 2 source :
+    - [github repo](https://github.com/eriklindernoren/Keras-GAN/tree/master/cyclegan)
+    - [How to Develop a CycleGAN for Image-to-Image Translation with Keras](https://machinelearningmastery.com/cyclegan-tutorial-with-keras/)
+
+- Le reseaux GAN est très lourd et j'utilise que des image de 256x256 pixel avec des batchs de 2
