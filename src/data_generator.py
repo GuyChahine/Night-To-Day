@@ -42,7 +42,7 @@ class DataGenerator(Sequence):
     def __data_generation(self, list_IDs_temp):
         
         def process_image(image):
-            np_image = np.asarray(image)
+            np_image = np.asarray(image)/255
             return cv2.resize(np_image, self.image_size)
         
         'Generates data containing batch_size samples' # X : (n_samples, *dim, n_channels)
