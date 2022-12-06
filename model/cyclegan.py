@@ -14,8 +14,8 @@ class CycleGAN():
     def __init__(
         self,
     ):
-        self.image_shape = (128,128,3)
-        self.batch_size = 5
+        self.image_shape = (64,64,3)
+        self.batch_size = 20
         
         self.data_generator = DataGenerator(image_size=self.image_shape[:2], batch_size=self.batch_size, shuffle=True)
         
@@ -37,8 +37,8 @@ class CycleGAN():
         self.gAB = self.build_generator()
         self.gBA = self.build_generator()
         
-        self.dA.trainable = False
-        self.dB.trainable = False
+        #self.dA.trainable = False
+        #self.dB.trainable = False
         
         image_A = Input(self.image_shape)
         image_B = Input(self.image_shape)
@@ -166,6 +166,3 @@ class CycleGAN():
                                                                             np.mean(g_loss[1:3]),
                                                                             np.mean(g_loss[3:5]),
                                                                             np.mean(g_loss[5:6])))
-                
-cyclegan = CycleGAN()
-cyclegan.train(2)
