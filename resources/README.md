@@ -85,3 +85,11 @@ Documentation of what has been done during the project.
     - [How to Develop a CycleGAN for Image-to-Image Translation with Keras](https://machinelearningmastery.com/cyclegan-tutorial-with-keras/)
 
 - Le reseaux GAN est très lourd et j'utilise que des image de 256x256 pixel avec des batchs de 2
+
+# 06/12/2022
+
+## Recherche sur different model
+
+- [Unsupervised Image-to-Image Translation Networks](https://arxiv.org/pdf/1703.00848.pdf)
+- [Coupled Generative Adversarial Networks](https://arxiv.org/pdf/1606.07536.pdf)
+- [CoGAN: Learning joint distribution with GAN](https://agustinus.kristia.de/techblog/2017/02/18/coupled_gan/)
