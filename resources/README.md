@@ -93,3 +93,21 @@ Documentation of what has been done during the project.
 - [Unsupervised Image-to-Image Translation Networks](https://arxiv.org/pdf/1703.00848.pdf)
 - [Coupled Generative Adversarial Networks](https://arxiv.org/pdf/1606.07536.pdf)
 - [CoGAN: Learning joint distribution with GAN](https://agustinus.kristia.de/techblog/2017/02/18/coupled_gan/)
+
+## New CNN1
+
+- J'ai reflechi a créer un nouveau model basé sur de CNN classique
+- Le model apprend peut avec un nombre de filter bas
+- Avec un nombre de filter haut il rend des images blanche (loss:0.3/0.4) donc je t'en d'InstanceNormalisé les layers
+
+## CNN2
+
+- J'ai InstanceNormalize toute les conv2D : Meilleur resultat le CNN descend en dessous de 0.3 -> 0.15
+- [REF ON RESNET](https://arxiv.org/pdf/1512.03385.pdf)
+- Je regarde les [resnet de keras](https://keras.io/api/applications/resnet/)
+- Pendant le training je viens de voir une image pas clean dans mon dataset (nuit/nuit)
+
+## Recherche model
+
+- [Pix2PixGAN](https://machinelearningmastery.com/how-to-implement-pix2pix-gan-models-from-scratch-with-keras/)
+- Je repart sur un [CycleGan](https://github.com/eriklindernoren/Keras-GAN/blob/master/cyclegan/cyclegan.py)
