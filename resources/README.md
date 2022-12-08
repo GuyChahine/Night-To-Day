@@ -111,3 +111,45 @@ Documentation of what has been done during the project.
 
 - [Pix2PixGAN](https://machinelearningmastery.com/how-to-implement-pix2pix-gan-models-from-scratch-with-keras/)
 - Je repart sur un [CycleGan](https://github.com/eriklindernoren/Keras-GAN/blob/master/cyclegan/cyclegan.py)
+- Reference sur le [UNET](https://arxiv.org/pdf/1505.04597.pdf)
+
+## CycleGAN New version
+
+- testing sur le model, bon resultat
+- Pour que le model puisse produire de meilleur resultat j'agrandi le dataset avec de nouvelle image day/night
+- Aussi pour qu'il puisse reussir s'adapter plus confortablement a different situation
+- [CITY DATASET DAY NIGHT KAGGLE](https://www.kaggle.com/datasets/solesensei/solesensei_bdd100k)
+- J'ai trier et prit 500 image pour faire un train test
+
+- Training sur 789 pixel est très: 1h pour 6 epoch sur 500 de training data
+
+- New dataset by [HEONH0](https://www.kaggle.com/datasets/heonh0/daynight-cityview)
+
+- 1h40 minutes pour le run avec 789 pixels
+
+
+
+- Je refait un run seulement sur les data de city et timelaps
+- J'ai essayé de passé les donnée et tensorlfow en float16 mais le calcul des loss ne ce fait pas correctement, les valeur sont trop petit et donc egale a 0
+
+- INFO: Le name trainv3b20128,128 avait un nb resnet a 9
+
+## Build CycleGan with ResNet
+
+- Idée basé sur [le code de nvidia](https://github.com/mingyuliutw/UNIT)
+
+- ResNet produit des images floue et le Unet produit des image claire mais peut transformé contrairement au resnet
+
+- [Combination ?](https://www.kaggle.com/code/meaninglesslives/unet-resnet34-in-keras/notebook)
+
+## Recherche d'une loss function
+
+- [loss function](https://arxiv.org/pdf/1511.08861.pdf)
+- [Contextual Loss](https://arxiv.org/pdf/1803.02077.pdf)
+- [Gram Matrix](https://github.com/robertomest/neural-style-keras/blob/master/training.py)
+- [CycleGAN New one](https://github.com/simontomaskarlsson/CycleGAN-Keras/blob/05c2dab2a8346fbc8ec9b6aed06eec1a0c3d5e04/model.py#L257)
+
+- INFO: On "trainv3_3UP_r128_nbres9" the discriminator was too good so I train it once every 2 batchs
+
+- Je cherche a reduire le noise sur les photo CycleGANUnetv2_trainv3_3UP_r128_nbres9_e11_r(128,128)_b1
+- [DN-ResNet: Efficient Deep Residual Network for Image Denoising](https://arxiv.org/pdf/1810.06766.pdf)
