@@ -11,7 +11,7 @@ import pandas as pd
 import sys
 sys.path.insert(0, "\\".join(__file__.split("\\")[:__file__.split("\\").index("Night-To-Day")+1]))
 
-from src.data_generator_trainv3 import DataGenerator_trainv3
+from src.data_generator_train_v5 import DataGenerator_trainv5
 
 class Utils():
     
@@ -40,7 +40,7 @@ class Utils():
         plt.close()
 
     def export_model(self, epoch, name):
-        if epoch+1 % 10 == 0:
+        if (epoch+1) % 1 == 0:
             self.combined.save(f"../model/saved_model/CycleGAN/{self.__class__.__name__}_{name}_e{epoch}_r({self.img_rows},{self.img_cols})_b{self.batch_size}.keras")
 
     def export_reports(self, name):
@@ -906,8 +906,8 @@ class CycleGANUnet(Utils):
 class CycleGANUnetv2(Utils):
     def __init__(self):
         # Input shape
-        self.img_rows = 256
-        self.img_cols = 256
+        self.img_rows = 512
+        self.img_cols = 512
         self.channels = 3
         self.batch_size = 1
         self.log_interval = 1
@@ -917,9 +917,9 @@ class CycleGANUnetv2(Utils):
         self.epoch, self.dis_loss, self.dis_acc, self.gen_loss, self.adv, self.recon, self.id, self.time = [], [], [], [], [], [], [], []
 
         # Configure data loader
-        self.data_loader = DataGenerator_trainv3(self.img_shape[:2], self.batch_size)
+        self.data_loader = DataGenerator_trainv5(self.img_shape[:2], self.batch_size)
 
-        self.sample_loader = DataGenerator_trainv3(self.img_shape[:2], 6)
+        self.sample_loader = DataGenerator_trainv5(self.img_shape[:2], 6)
 
         # Calculate output shape of D (PatchGAN)
         patch = int(self.img_rows / 2**4)
@@ -928,26 +928,30 @@ class CycleGANUnetv2(Utils):
         # Number of filters in the first layer of G and D
         self.gf = 32
         self.df = 64
-        self.rf = 128
-        self.nb_resnet = 5
+        self.rf = 512
+        self.nb_resnet = 3
 
         self.nb_dis_train = 2
 
         # Loss weights
-        self.lambda_cycle = 10.0                    # Cycle-consistency loss
+        self.lambda_cycle = 2                    # Cycle-consistency loss
         self.lambda_id = 0.1 * self.lambda_cycle    # Identity loss
+        self.genloss_weight = 2
+        self.disloss_weights = 0.5
 
-        optimizer = Adam(0.0002, 0.5)
+        optimizer = Adam(0.0003, 0.5)
 
         # Build and compile the discriminators
         self.d_A = self.build_discriminator()
         self.d_B = self.build_discriminator()
         self.d_A.compile(loss='mse',
             optimizer=optimizer,
-            metrics=['accuracy'])
+            metrics=['accuracy'],
+            loss_weights=[self.disloss_weights])
         self.d_B.compile(loss='mse',
             optimizer=optimizer,
-            metrics=['accuracy'])
+            metrics=['accuracy'],
+            loss_weights=[self.disloss_weights])
 
         #-------------------------
         # Construct Computational
@@ -988,7 +992,7 @@ class CycleGANUnetv2(Utils):
         self.combined.compile(loss=['mse', 'mse',
                                     'mae', 'mae',
                                     'mae', 'mae'],
-                            loss_weights=[  1, 1,
+                            loss_weights=[  self.genloss_weight, self.genloss_weight,
                                             self.lambda_cycle, self.lambda_cycle,
                                             self.lambda_id, self.lambda_id ],
                             optimizer=optimizer)
@@ -1028,12 +1032,14 @@ class CycleGANUnetv2(Utils):
         d0 = conv2d(input_img, self.gf)
         d1 = conv2d(d0, self.gf*2)
         d2 = conv2d(d1, self.gf*4)
+        d3 = conv2d(d2, self.gf*8)
 
         for _ in range(self.nb_resnet):
-            d2 = resnet_block(d2, self.rf)
+            d3 = resnet_block(d3, self.rf)
 
         # Upsampling
-        u1 = deconv2d(d2, d1, self.gf*2)
+        u2 = deconv2d(d3, d2, self.gf*4)
+        u1 = deconv2d(u2, d1, self.gf*2)
         u0 = deconv2d(u1, d0, self.gf)
         
         x = UpSampling2D(size=2)(u0)
