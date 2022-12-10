@@ -153,3 +153,5 @@ Documentation of what has been done during the project.
 
 - Je cherche a reduire le noise sur les photo CycleGANUnetv2_trainv3_3UP_r128_nbres9_e11_r(128,128)_b1
 - [DN-ResNet: Efficient Deep Residual Network for Image Denoising](https://arxiv.org/pdf/1810.06766.pdf)
+
+- The adversarial loss in a GAN represents the amount of information that the generator is able to trick the discriminator into believing is true.
