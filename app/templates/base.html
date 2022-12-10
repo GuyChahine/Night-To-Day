@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <style>
+            body {
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0px;
+                padding: 0px;
+                background-color: white;
+            }
+            header {
+                background-image: url('../static/back.jpg');
+                background-size: cover;
+                background-position: center center;
+                height: 250px;
+                display: block;
+                text-align: center;
+                padding-top: 120px;
+                border-bottom: solid 3px white;
+            }
+            .general {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                margin: auto;
+                margin-top: 50px;
+                padding: 30px;
+                border-radius: 15px;
+                background-color: white;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            }
+            .second {
+                margin: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input[type="file"] {
+                display: none;
+            }
+            .fileup {
+                cursor: pointer;
+                font-size: 20px;
+                padding: 15px 40px 15px 40px;
+                margin: 10px;
+                border-radius: 15px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            }
+            .container {
+                font-size: 20px;
+                color: white;
+            }
+            input[type="radio"] {
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+            }
+            #checkboxs {
+                background-color: #222;
+                padding: 20px 40px 20px 40px;
+                margin: 10px;
+                display: block;
+                width: 250px;
+                text-align: center;
+                border-radius: 15px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            }
+            input[type="submit"] {
+                font-size: 20px;
+                padding: 10px 40px 10px 40px;
+                margin: 10px;
+                border: solid 4px lightgreen;
+                background-color: white;
+                border-radius: 15px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                cursor: pointer;
+            }
+            h1 {
+                font-size: 80px;
+                color:white;
+                margin: 0px;
+            }
+            h2 {
+                color: white;
+            }
+        </style>
+        <title>Night2Day</title>
+    </head>
+    <body>
+        <header>
+            <h1>Transform your cities</h1>
+            <h2>by Guy Chahine</h2>
+        </header>
+        <div class="general">
+            <form name="image_proc" action = "/upload" method = "POST" enctype="multipart/form-data">
+                <div class="second">
+                    <label for="inputimage" class="fileup">Upload Image</label>
+                    <input id="inputimage" type="file" accept="image/*" name="image" class="inputfile"/>
+                </div>
+                <div class="second" id="checkboxs">
+                    <input type="radio" name="domain" value="NIGHT2DAY" checked class="boxs">
+                    <label for="NIGHT2DAY" class="container">Night2Day</label>
+                    <input type="radio" name="domain" value="DAY2NIGHT" class="boxs">
+                    <label for="Day2Night" class="container">Day2Night</label>
+                </div>
+                <div class="second">
+                    <input type="submit"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
