@@ -6,7 +6,7 @@ from os import walk
 def load_process_image(path):
     image = Image.open(path)
     np_image = np.asarray(image)/255
-    return cv2.resize(np_image, (256,256)).astype(np.float32)
+    return cv2.resize(np_image, (512,512)).astype(np.float32)
 
 def get_file_names(dir):
     for _,_,file_names in walk(dir):
@@ -26,6 +26,6 @@ def main():
         np.save(NEW_DIR + "night/" + name, clean_img)
 
 if __name__ == "__main__":
-    OLD_DIR = "../data/train_v3/"
-    NEW_DIR = "../data/256_preprocess_train_v3/"
+    OLD_DIR = "../data/train_v5/"
+    NEW_DIR = "../data/512_preprocess_train_v5/"
     main()
